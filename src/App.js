@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './Footer';
 import WalletGenerator from './WalletGenerator';
 
 function App() {
@@ -9,7 +10,9 @@ function App() {
         Ethereum Wallet Generator
       </h1>
         <WalletGenerator />
+        <Footer />
       </header>
+      
     </div>
   );
 }
