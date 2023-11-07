@@ -17,7 +17,7 @@ const WalletGenerator = () => {
         <>
             <div className="flex flex-col items-center justify-center px-4 py-6">
 
-                <p className="text-gray-600 mb-4 text-center mx-2">
+                <p className="text-gray-600 mb-4 text-center mx-2 max-w-4xl mx-auto p-4">
                     Click the button below to generate a new Ethereum wallet. All operations are done locally in your browser; we never store or transmit your private information.
                 </p>
                 <button
