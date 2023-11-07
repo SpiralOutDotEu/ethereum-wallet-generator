@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 
+
+
 const WalletGenerator = () => {
     const [walletInfo, setWalletInfo] = useState(null);
 
@@ -11,6 +13,27 @@ const WalletGenerator = () => {
             mnemonic: wallet.mnemonic.phrase,
             privateKey: wallet.privateKey
         });
+    };
+
+    const downloadWalletInfo = () => {
+        if (!walletInfo) return;
+
+        const blob = new Blob(
+            [
+                `Address: ${walletInfo.address}\n`,
+                `Mnemonic: ${walletInfo.mnemonic}\n`,
+                `Private Key: ${walletInfo.privateKey}`
+            ],
+            { type: 'text/plain;charset=utf-8' }
+        );
+
+        const blobUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = `wallet-info-${walletInfo.address}.txt`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
 
     return (
@@ -35,7 +58,14 @@ const WalletGenerator = () => {
                             <p className="text-gray-700 text-base mt-2"><b>Mnemonic:</b> {walletInfo.mnemonic}</p>
                             <p className="text-gray-700 text-base mt-2"><b>Private Key:</b> <span className="break-all">{walletInfo.privateKey}</span></p>
                         </div>
+                        <button
+                            onClick={downloadWalletInfo}
+                            className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full sm:w-auto"
+                        >
+                            Download Wallet Info
+                        </button>
                     </div>
+
                 )}
             </div>
         </>
