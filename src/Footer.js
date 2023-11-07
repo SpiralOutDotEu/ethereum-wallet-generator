@@ -19,6 +19,14 @@ const Footer = () => {
                     Follow on Twitter
                 </a>
                 </div>
+                <div>
+                <a href="https://twitter.com/share?url=https://ethereum-wallet-generator-online.vercel.app/&text=Generate Ethereum wallets securely in your browser"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 border border-gray-600 rounded shadow text-sm">
+                    Share on Twitter
+                </a>
+                </div>
             </div>
         </footer>
     );
