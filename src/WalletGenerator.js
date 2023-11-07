@@ -40,23 +40,23 @@ const WalletGenerator = () => {
         <>
             <div className="flex flex-col items-center justify-center px-4 py-6">
 
-                <p className="text-gray-600 mb-4 text-center mx-2 max-w-4xl mx-auto p-4">
+                <p className="text-gray-300 mb-4 text-center mx-2 max-w-4xl mx-auto p-4">
                     Click the button below to generate a new Ethereum wallet. All operations are done locally in your browser; we never store or transmit your private information.
                 </p>
                 <button
                     onClick={createWallet}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4 w-full sm:w-auto"
                 >
-                    Create Wallet
+                    Create Random Wallet
                 </button>
             </div>
             <div className="flex flex-col items-center justify-center px-4 py-6">
                 {walletInfo && (
-                    <div className="mt-4 p-4 w-full bg-white rounded-lg border shadow-md sm:max-w-md sm:mx-0 mx-2 overflow-auto">
-                        <div className="overflow-x-auto">
-                            <p className="text-gray-700 text-base"><b>Address:</b> {walletInfo.address}</p>
-                            <p className="text-gray-700 text-base mt-2"><b>Mnemonic:</b> {walletInfo.mnemonic}</p>
-                            <p className="text-gray-700 text-base mt-2"><b>Private Key:</b> <span className="break-all">{walletInfo.privateKey}</span></p>
+                    <div className="mt-4 sm:p-8 w-full bg-opacity-20 bg-white border-t border-gray-700 sm:mt-8 py-4 rounded-lg border shadow-md sm:max-w-md mx-auto overflow-auto">
+                        <div className="overflow-x-auto text-sm mb-4">
+                            <p className="text-white-100 text-base"><b>Address:</b> {walletInfo.address}</p>
+                            <p className="text-white-100 text-base mt-2"><b>Mnemonic:</b> {walletInfo.mnemonic}</p>
+                            <p className="text-white-100 text-base mt-2"><b>Private Key:</b> <span className="break-all">{walletInfo.privateKey}</span></p>
                         </div>
                         <button
                             onClick={downloadWalletInfo}
