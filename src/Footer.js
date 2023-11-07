@@ -1,5 +1,3 @@
-import { Twitter } from '@heroicons/react/24/solid';
-
 const Footer = () => {
     return (
         <footer className="bg-opacity-20 bg-white border-t border-gray-700 mt-8 py-4">
