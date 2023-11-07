@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { ClipboardIcon, CheckIcon } from '@heroicons/react/24/solid';
 
@@ -6,6 +6,10 @@ import { ClipboardIcon, CheckIcon } from '@heroicons/react/24/solid';
 const WalletGenerator = () => {
     const [walletInfo, setWalletInfo] = useState(null);
     const [copied, setCopied] = useState({ address: false, mnemonic: false, privateKey: false });
+
+    useEffect(() => {
+        createWallet();
+      }, []);
 
     const createWallet = () => {
         const wallet = ethers.Wallet.createRandom();
