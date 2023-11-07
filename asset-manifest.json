@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ethereum-wallet-generator/static/css/main.b4a8d04a.css",
-    "main.js": "/ethereum-wallet-generator/static/js/main.bf048b40.js",
-    "static/js/787.ad5d823f.chunk.js": "/ethereum-wallet-generator/static/js/787.ad5d823f.chunk.js",
-    "index.html": "/ethereum-wallet-generator/index.html",
-    "main.b4a8d04a.css.map": "/ethereum-wallet-generator/static/css/main.b4a8d04a.css.map",
-    "main.bf048b40.js.map": "/ethereum-wallet-generator/static/js/main.bf048b40.js.map",
-    "787.ad5d823f.chunk.js.map": "/ethereum-wallet-generator/static/js/787.ad5d823f.chunk.js.map"
+    "main.css": "./static/css/main.b4a8d04a.css",
+    "main.js": "./static/js/main.c7ab9ae9.js",
+    "static/js/787.ad5d823f.chunk.js": "./static/js/787.ad5d823f.chunk.js",
+    "index.html": "./index.html",
+    "main.b4a8d04a.css.map": "./static/css/main.b4a8d04a.css.map",
+    "main.c7ab9ae9.js.map": "./static/js/main.c7ab9ae9.js.map",
+    "787.ad5d823f.chunk.js.map": "./static/js/787.ad5d823f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b4a8d04a.css",
-    "static/js/main.bf048b40.js"
+    "static/js/main.c7ab9ae9.js"
   ]
 }
