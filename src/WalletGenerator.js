@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
-
+import { ClipboardIcon, CheckIcon } from '@heroicons/react/24/solid';
 
 
 const WalletGenerator = () => {
     const [walletInfo, setWalletInfo] = useState(null);
+    const [copied, setCopied] = useState({ address: false, mnemonic: false, privateKey: false });
 
     const createWallet = () => {
         const wallet = ethers.Wallet.createRandom();
@@ -36,6 +37,14 @@ const WalletGenerator = () => {
         document.body.removeChild(link);
     };
 
+    const copyToClipboard = (text, field) => {
+        navigator.clipboard.writeText(text);
+        setCopied({ ...copied, [field]: true });
+        setTimeout(() => {
+            setCopied({ ...copied, [field]: false });
+        }, 2000); // Reset the copied state after 2 seconds
+    };
+
     return (
         <>
             <div className="flex flex-col items-center justify-center px-4 py-6">
@@ -50,22 +59,64 @@ const WalletGenerator = () => {
                     Create Random Wallet
                 </button>
             </div>
-            <div className="flex flex-col items-center justify-center px-4 py-6">
-                {walletInfo && (
-                    <div className="mt-4 sm:p-8 w-full bg-opacity-20 bg-white border-t border-gray-700 sm:mt-8 py-4 rounded-lg border shadow-md sm:max-w-md mx-auto overflow-auto">
-                        <div className="overflow-x-auto text-sm mb-4">
-                            <p className="text-white-100 text-base"><b>Address:</b> {walletInfo.address}</p>
-                            <p className="text-white-100 text-base mt-2"><b>Mnemonic:</b> {walletInfo.mnemonic}</p>
-                            <p className="text-white-100 text-base mt-2"><b>Private Key:</b> <span className="break-all">{walletInfo.privateKey}</span></p>
+            <div className="mt-4 p-6 sm:p-6 w-full bg-opacity-20 bg-white border-t border-gray-700 mt-8 py-4 rounded-lg border shadow-md sm:max-w-md sm:mx-auto mx-2 overflow-auto">
+                {walletInfo ? (
+                    <div className="overflow-x-auto text-sm mb-4">
+                        {/* Address */}
+                        <div className="flex items-center justify-between space-x-2">
+                            <p className="text-white text-base"><b>Address:</b></p>
+                            <div className="flex-1">
+                                <p className="text-white text-base break-all">{walletInfo.address}</p>
+                            </div>
+                            <button
+                                onClick={() => copyToClipboard(walletInfo.address, 'address')}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded inline-flex items-center"
+                            >
+                                {copied.address ? <CheckIcon className="h-5 w-5" /> : <ClipboardIcon className="h-5 w-5" />}
+                            </button>
                         </div>
+                        {copied.address && <p className="text-green-500 text-xs">Address copied!</p>}
+
+                        {/* Mnemonic */}
+                        <div className="flex items-center justify-between space-x-2 mt-4">
+                            <p className="text-white text-base"><b>Mnemonic:</b></p>
+                            <div className="flex-1">
+                                <p className="text-white text-base break-all">{walletInfo.mnemonic}</p>
+                            </div>
+                            <button
+                                onClick={() => copyToClipboard(walletInfo.mnemonic, 'mnemonic')}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded inline-flex items-center"
+                            >
+                                {copied.mnemonic ? <CheckIcon className="h-5 w-5" /> : <ClipboardIcon className="h-5 w-5" />}
+                            </button>
+                        </div>
+                        {copied.mnemonic && <p className="text-green-500 text-xs">Mnemonic copied!</p>}
+
+                        {/* Private Key */}
+                        <div className="flex items-center justify-between space-x-2 mt-4">
+                            <p className="text-white text-base"><b>Private Key:</b></p>
+                            <div className="flex-1">
+                                <p className="text-white text-base break-all">{walletInfo.privateKey}</p>
+                            </div>
+                            <button
+                                onClick={() => copyToClipboard(walletInfo.privateKey, 'privateKey')}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded inline-flex items-center"
+                            >
+                                {copied.privateKey ? <CheckIcon className="h-5 w-5" /> : <ClipboardIcon className="h-5 w-5" />}
+                            </button>
+                        </div>
+                        {copied.privateKey && <p className="text-green-500 text-xs">Private key copied!</p>}
+
+                        {/* Download Button */}
                         <button
                             onClick={downloadWalletInfo}
-                            className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full sm:w-auto"
+                            className="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
                         >
                             Download Wallet Info
                         </button>
                     </div>
-
+                ) : (
+                    <p className="text-white text-center">No wallet information available.</p>
                 )}
             </div>
         </>
