@@ -1,7 +1,7 @@
 {
   "name": "ethereum-wallet-generator",
   "version": "0.1.0",
-  "homepage": "https://SpiralOutDotEu.github.io/ethereum-wallet-generator/",
+  "homepage": ".",
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@testing-library/jest-dom": "^5.17.0",
