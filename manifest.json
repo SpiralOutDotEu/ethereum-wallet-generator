@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Ethereum Wallet Generator ",
+  "name": "Generate Ethereum wallets securely in your browser. No data is stored or transmitted.",
   "icons": [
     {
       "src": "favicon.ico",
