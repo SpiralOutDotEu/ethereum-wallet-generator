@@ -8,13 +8,16 @@ const MetaTags = () => {
       <meta name="description" content="Generate Ethereum wallets securely in your browser. No data is stored or transmitted." />
       <meta name="keywords" content="Ethereum, Wallet, Generator, Blockchain, Cryptocurrency" />
       <meta name="author" content="Jumaru" />
+      <meta name="title" key="title" content="Ethereum Wallet Generator Online" />
       <link rel="canonical" href="https://ethereum-wallet-generator-online.vercel.app/" />
+      <meta property="og:locale" key="og:locale" content="en_US" />
+      <meta charSet="utf-8" />
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://ethereum-wallet-generator-online.vercel.app/" />
-      <meta property="og:title" content="Ethereum Wallet Generator Online" />
+      <meta property="og:title" key="og:title" content="Ethereum Wallet Generator Online" />
       <meta property="og:description" content="Generate Ethereum wallets securely in your browser. No data is stored or transmitted." />
-      <meta property="og:image" content="https://ethereum-wallet-generator-online.vercel.app/demo.png" />
+      <meta property="og:image"  key="og:image" content="https://ethereum-wallet-generator-online.vercel.app/demo.png" />
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://ethereum-wallet-generator-online.vercel.app/" />
